@@ -6,12 +6,12 @@ export default function Login() {
     <div className = "loginBox">
       <h6>Login. Enter your username and password.</h6>
       <form>
-        <label for="username">
+        <label>
           Username:
         </label>
         <input type="text" id="user" name="user" required></input>
         <br/>
-        <label for="password">
+        <label>
           Password:
         </label>
         <input type="text" id="pw" name="pw"></input>

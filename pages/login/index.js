@@ -1,4 +1,4 @@
-import {loginBox} from "../styles/Login.module.css";
+import {loginBox} from "./login.module.css";
 
 export default function Login() {
   return (

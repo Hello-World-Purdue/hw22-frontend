@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import './login.css'
+import '../styles/Login.module.css'
 
 export default function Login() {
   return (

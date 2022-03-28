@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import '../styles/Login.module.css'
+
 
 export default function Login() {
   return (
@@ -9,14 +9,14 @@ export default function Login() {
         <label>
           Username:
         </label>
-        <input type="text" id="user" name="user" required></input>
+        <input type="text" id="user" name="user" required/>
         <br/>
         <label>
           Password:
         </label>
-        <input type="text" id="pw" name="pw"></input>
+        <input type="text" id="pw" name="pw"/>
         <br/>
-        <input type="submit">Submit</input>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )

@@ -3,17 +3,40 @@ import React, {useState} from 'react'
 import styles from '../styles/Login.module.css'
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleOnChange = () => {
+  const handleOnCheck = () => {
     setIsChecked(!isChecked);
   }
 
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
+  }
+
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    // create a user object
+
+    const user = {
+      username: username,
+      password: password,
+      checked: isChecked
+    }
+
+    // TODO: send the user object to the back end
+  }
 
   return (
     <div className = {styles.loginBox}>
       <h4>Login. Enter your username and password.</h4>
-      <form>
+      <form onSubmit={submitForm}>
         <label>
           Username:
         </label>
@@ -31,7 +54,7 @@ export default function Login() {
           id="remember"
           name="remember"
           checked={isChecked}
-          onChange={handleOnChange}
+          onChange={handleOnCheck}
         />
         <label>Remember Me</label>
         <br/>

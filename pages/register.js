@@ -5,12 +5,16 @@ export default function Register() {
 
   return (
     <div className = {styles.loginBox}>
-      <h4>Sign up! Enter your username and password.</h4>
+      <h4>Sign up! Enter your name, email and password.</h4>
       <form>
         <label>
-          New Username:
+          Name:
         </label>
-        <input type="text" id="user" name="user" required/>
+        <input type="text" id="name" name="name" required/>
+        <label>
+          Email:
+        </label>
+        <input type="text" id="email" name="email" required/>
         <br/>
         <label>
           Password:

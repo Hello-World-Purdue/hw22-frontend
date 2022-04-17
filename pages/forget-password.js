@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '../styles/Login.module.css'
 
-export default function () {
+export default function ForgetPassword() {
   return (
     <div className = {styles.loginBox}>
       <h4>Forgotten your password? Please enter your email.</h4>

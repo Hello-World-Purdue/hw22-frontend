@@ -119,13 +119,64 @@ export default function Faq() {
           </p>
         </li>
       );
+    
+    const [state, setState] = useState({
+      username: "",
+      email: "",
+      question: "",
+    });
+    const handleChange = (e) => {
+      setState({
+        ...state,
+        [e.target.name]: e.target.value,
+      });
+    };
+    const submitHandler = (e) => {
+      // e.preventDefault();
+      console.log("test:" + state.username + state.email + state.question)
+    };
       
         
 return (
 <body>
 <h2>FAQ</h2>
 <ul>{listItems}</ul>
-    
-    </body>
+
+<h3>Further questions?</h3>
+<p>Contact us using the form below, or email us at: </p>
+<div>
+  <input
+  type="text"
+  name="username"
+  id="username"
+  placeholder="User Name"
+  onChange={handleChange}
+  />
+</div>
+<div>
+  <input
+  type="email"
+  name="email"
+  id="email"
+  placeholder="User Email"
+  onChange={handleChange}
+  />
+</div>
+<div>
+  <textarea
+  name="question"
+  placeholder="User Question"
+  onChange={handleChange}
+  />
+</div>
+<div>
+  <button
+  onClick={submitHandler}
+  type="submit"
+  > Submit</button>
+</div>
+</body>
+
+
 )
 }

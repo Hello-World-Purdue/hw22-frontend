@@ -34,4 +34,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+<<<<<<< HEAD
 package-lock.json
+=======
+# typescript
+*.tsbuildinfo
+>>>>>>> 83e9222f5ab1a7e3f3e433f0357a0b6f3f93f108

@@ -33,7 +33,6 @@ export default function ForgetPassword() {
           value={email}
           onChange={handleEmail}
           required
-
         />
         <br/>
         <button type="submit">Submit</button>

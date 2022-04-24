@@ -1,0 +1,29 @@
+.topnav {
+    position: absolute;
+    width: 1100px;
+    height: 85px;
+    background-color: blue;
+    left: 20px;
+    top: 177px;
+    background-color: #0201013d;
+    
+}
+
+.navOne {
+  float: left;
+  color: red;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+
+  font-family: 'Back Issues BB';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+
+
+color: #FFFFFF;
+}

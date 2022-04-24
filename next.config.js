@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
 
-module.exports = nextConfig
+  compiler: {
+    // cleans up console logs in production mode
+    removeConsole: {
+      exclude: ["error"],
+    },
+  },
+};
+
+module.exports = nextConfig;

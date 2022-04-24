@@ -8,9 +8,12 @@ import {Nullish} from "~/util/types";
 export interface Auth {
   email: string;
   name: string;
+  _id: string;
+  token: string;
   // probably not needed?
   _isAdmin?: boolean;
 }
+
 export interface AuthContext {
   auth: Auth | Nullish;
   setAuth(auth: Auth | ((auth: Auth) => Auth)): void;

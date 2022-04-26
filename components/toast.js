@@ -1,20 +1,18 @@
 import React, { useContext } from "react";
-import AlertContext from "../context/AlertContext";
+import styles from '../styles/modal.module.css';
 
 const Toast = (props) => {
 	// const { title, message } = useContext(AlertContext);
-    const ctx = useContext(AlertContext);
+	const { title, message, comment, closeToast } = props;
 
 	return (
-		<div>
+		<div style={styles.modal}>
 			<div>
-				{" "}
-				{/* title */}
-				<div>{/* content */}</div>
-				<div>{/* comment */}</div>
+				<strong>{title}</strong>
+				<div>{message}</div>
+				<div><small>{comment}</small></div>
 				<div>
-					{/* buttons */}
-					<button onClick={props.closeToast}>OK</button>
+					<button onClick={closeToast}>OK</button>
 				</div>
 			</div>
 		</div>

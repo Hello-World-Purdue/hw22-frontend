@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 
-import {Navbar} from "../components/navbar";
+import Navbar from "../components/navbar";
+import Alert from "../components/alert";
+
 // Context providers
 import {AlertContextProvider} from "../context/AlertContext";
 import {AuthContextProvider} from "../context/AuthContext";
@@ -14,6 +16,7 @@ function MyApp({Component, pageProps}) {
           <AlertContextProvider>
             <Navbar />
             <Component {...pageProps} />
+            <Alert />
           </AlertContextProvider>
         </UserContextProvider>
       </AuthContextProvider>

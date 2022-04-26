@@ -44,7 +44,6 @@ export default function Register() {
 				email: email,
 				password: password,
         passwordConfirm: confirmPassword
-
 			};
 
 			signup(newUser);

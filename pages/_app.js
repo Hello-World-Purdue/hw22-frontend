@@ -9,14 +9,14 @@ import AuthContext from "../context/AuthContext";
 function MyApp({ Component, pageProps }) {
 	return (
 		<div>
-			<AlertContext>
-				<AuthContext>
-					<UserContext>
+			<AuthContext>
+				<UserContext>
+					<AlertContext>
 						<Navbar />
 						<Component {...pageProps} />
-					</UserContext>
-				</AuthContext>
-			</AlertContext>
+					</AlertContext>
+				</UserContext>
+			</AuthContext>
 		</div>
 	);
 }

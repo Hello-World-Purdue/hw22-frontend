@@ -1,13 +1,15 @@
-import React, { useState, useContext, useEffect } from "react";
-import AuthContext from "./AuthContext";
 import axios from "axios";
+import React, {useContext, useEffect, useState} from "react";
+
+import AuthContext from "./AuthContext";
+import {Application, User} from "./types";
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === "production"
     ? "https://helloworldpurdue-api.herokuapp.com"
     : "http://localhost:5000";
 
-const initialState = {
+const initialState: {application: Application | null; user: User | null} = {
   application: null,
   user: null,
   // allUsers: null,
@@ -15,17 +17,17 @@ const initialState = {
 
 const UserContext = React.createContext({
   ...initialState,
-  makeAnnouncement: (ancmnt) => { },
-  getAnnouncements: () => { },
-  getUsers: () => { },
-  getUser: (id) => { },
-  getUserApp: (id) => { },
-  getAuthApp: () => { },
-  updateProfile: (id, formData) => { },
-  apply: (id, appData) => { },
+  makeAnnouncement: (ancmnt: string) => {},
+  getAnnouncements: () => {},
+  getUsers: () => {},
+  getUser: (id: string) => {},
+  getUserApp: (id: string) => {},
+  getAuthApp: () => {},
+  updateProfile: (id: string, formData: any) => {},
+  apply: (id: string, appData: any) => {},
 });
 
-export const UserContextProvider = (props) => {
+export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
   const authContext = useContext(AuthContext);
 
   const [state, setState] = useState(initialState);
@@ -46,10 +48,10 @@ export const UserContextProvider = (props) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${authContext.token}`,
         },
-      })
+      });
 
       return Promise.resolve(res.data);
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
         return Promise.reject(err.response.data.error);
       }
@@ -58,7 +60,7 @@ export const UserContextProvider = (props) => {
   };
 
   // Get the user by id
-  const getUser = async (id) => {
+  const getUser = async (id: string) => {
     try {
       const res = await axios.get(`/api/users/${id}`);
 
@@ -66,16 +68,16 @@ export const UserContextProvider = (props) => {
         ...state,
         user: res.data,
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
   // Get application (user id)
-  const getUserApp = async (id) => {
+  const getUserApp = async (id: string) => {
     try {
       const res = await axios.get(`/api/users/${id}/application`);
 
@@ -83,11 +85,11 @@ export const UserContextProvider = (props) => {
         ...state,
         application: res.data,
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
@@ -96,15 +98,15 @@ export const UserContextProvider = (props) => {
     try {
       const res = await axios.get(`/api/announcement/`);
       return Promise.resolve(res.data);
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
-  const newAnnouncementHandler = async (ancmnt) => {
+  const newAnnouncementHandler = async (ancmnt: string) => {
     try {
       const res = await axios.post("/api/announcement", ancmnt, {
         headers: {
@@ -114,11 +116,11 @@ export const UserContextProvider = (props) => {
       });
 
       return Promise.resolve(res);
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
@@ -131,7 +133,7 @@ export const UserContextProvider = (props) => {
         ...state,
         application: res.data,
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
         return Promise.reject(err.response.data.error);
       }
@@ -140,7 +142,7 @@ export const UserContextProvider = (props) => {
   };
 
   // Edit profile
-  const updateProfile = async (id, formData) => {
+  const updateProfile = async (id: string, formData: any) => {
     try {
       const res = await axios.put(`/api/users/${id}`, formData, {
         headers: {
@@ -155,16 +157,16 @@ export const UserContextProvider = (props) => {
         ...state,
         user: res.data.user,
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
   // Apply for hackathon
-  const apply = async (id, appData) => {
+  const apply = async (id: string, appData: any) => {
     try {
       //appending as form data
       let data = new FormData();
@@ -183,11 +185,11 @@ export const UserContextProvider = (props) => {
         ...state,
         application: res.data.app,
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 

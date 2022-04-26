@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, {useEffect, useState} from "react";
+
+import {User} from "./types";
 
 axios.defaults.baseURL =
   process.env.NODE_ENV == "production"
     ? "https://helloworldpurdue-api.herokuapp.com"
     : "http://localhost:5000";
 
-const initialState = {
+const initialState: {
+  isAuthenticated: boolean;
+  user: User | null;
+  token: string | null;
+} = {
   isAuthenticated: false,
   user: null,
   token: null,
@@ -14,31 +20,30 @@ const initialState = {
 
 const AuthContext = React.createContext({
   ...initialState,
-  login: (user) => {},
+  login: (user: User) => {},
   logout: () => {},
-  signup: (user) => {},
-  forgot: (email) => {},
-  reset: (formData) => {},
-  update: (user) => {},
-  rsvp: (id) => {
-    return Promise.resolve();
-  },
+  signup: (user: User) => {},
+  forgot: (email: string) => {},
+  reset: (formData: any) => {},
+  update: (user: User) => {},
+  rsvp: (id: string) => Promise.resolve(),
 });
 
-export const AuthContextProvider = (props) => {
-
+export const AuthContextProvider = ({
+  children,
+}: React.PropsWithChildren<{}>) => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    let userdatastring = "";
+    let userdatastring: string | null = "";
     let userData = null;
-    
+
     // console.log("page reloaded");
     if (typeof window !== "undefined") {
       userdatastring = localStorage.getItem("userdata");
     }
 
-    if (userdatastring !== "") {
+    if (userdatastring) {
       userData = JSON.parse(userdatastring);
     }
 
@@ -52,7 +57,7 @@ export const AuthContextProvider = (props) => {
     // console.log("state set");
   }, []);
 
-  const loginHandler = async (user) => {
+  const loginHandler = async (user: User) => {
     try {
       const res = await axios.post("/api/auth/login", user, {
         headers: {
@@ -67,11 +72,11 @@ export const AuthContextProvider = (props) => {
         user: res.data.user,
         token: res.data.token,
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
@@ -84,7 +89,7 @@ export const AuthContextProvider = (props) => {
     });
   };
 
-  const signupHandler = async (user) => {
+  const signupHandler = async (user: User) => {
     try {
       const res = await axios.post("/api/auth/signup", user, {
         headers: {
@@ -99,15 +104,15 @@ export const AuthContextProvider = (props) => {
         user: res.data.user,
         token: res.data.token,
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
-  const forgotHandler = async (email) => {
+  const forgotHandler = async (email: string) => {
     const requestBody = {
       email,
     };
@@ -118,37 +123,37 @@ export const AuthContextProvider = (props) => {
           "Content-Type": "application/json",
         },
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
-  const updateUser = (user) => {
+  const updateUser = (user: User) => {
     setState({
       ...state,
-      user: user,
+      user,
     });
   };
 
-  const resetHandler = async (formData) => {
+  const resetHandler = async (formData: any) => {
     try {
       await axios.post("/api/auth/reset", formData, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-    } catch (err) {
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
-  const rsvp = async (id) => {
+  const rsvp = async (id: string) => {
     try {
       const res = await axios.post(
         `/api/users/${id}/rsvp`,
@@ -161,7 +166,7 @@ export const AuthContextProvider = (props) => {
         }
       );
       let userData = res.data.user;
-      let local = JSON.parse(localStorage.getItem("userdata"));
+      let local = JSON.parse(localStorage.getItem("userdata") ?? "{}");
       local.user = userData;
       localStorage.setItem("userdata", JSON.stringify(local));
 
@@ -169,12 +174,12 @@ export const AuthContextProvider = (props) => {
         ...state,
         user: userData,
       });
-      return Promise.resolve(res.data.user.rsvp);
-    } catch (err) {
+      return res.data.user.rsvp;
+    } catch (err: any) {
       if (err.response) {
-        return Promise.reject(err.response.data.error);
+        throw err.response.data.error;
       }
-      return Promise.reject(err.message);
+      throw err.message;
     }
   };
 
@@ -193,7 +198,7 @@ export const AuthContextProvider = (props) => {
         rsvp,
       }}
     >
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 };

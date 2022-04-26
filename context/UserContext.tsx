@@ -8,7 +8,7 @@ axios.defaults.baseURL =
   process.env.NODE_ENV === "production"
     ? "https://helloworldpurdue-api.herokuapp.com"
     : "http://localhost:5000";
-axios.defaults.baseURL = "https://helloworldpurdue-api.herokuapp.com";
+
 const initialState: {application: Application | null; user: User | null} = {
   application: null,
   user: null,
@@ -37,6 +37,7 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
       ...state,
       user: authContext.user,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authContext?.user]);
 
   // Get all users
@@ -93,7 +94,6 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
     }
   };
 
-  // Get application (user id)
   const getAnnouncements = async () => {
     try {
       const res = await axios.get(`/api/announcement/`);
@@ -106,7 +106,7 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
     }
   };
 
-  const newAnnouncementHandler = async (ancmnt: string) => {
+  const makeAnnouncement = async (ancmnt: string) => {
     try {
       const res = await axios.post("/api/announcement", ancmnt, {
         headers: {
@@ -196,8 +196,6 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
   return (
     <UserContext.Provider
       value={{
-        getAnnouncements: getAnnouncements,
-        makeAnnouncement: newAnnouncementHandler,
         user: state.user,
         application: state.application,
         // allUsers: state.allUsers,
@@ -207,6 +205,8 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
         getAuthApp,
         updateProfile,
         apply,
+        getAnnouncements,
+        makeAnnouncement,
       }}
     >
       {props.children}

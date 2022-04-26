@@ -24,7 +24,9 @@ export default function Faq() {
 			<ul>{listItems}</ul>
 
 			<h3>Further questions?</h3>
-			<p>Email us at: <strong>helloworldpurdue@gmail.com</strong></p>
+			<p>
+				Email us at: <strong>helloworldpurdue@gmail.com</strong>
+			</p>
 		</body>
 	);
 }

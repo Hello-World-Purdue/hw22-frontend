@@ -1,6 +1,7 @@
 import React, {PropsWithChildren, useState} from "react";
 
 type NullableString = string | null;
+
 const initialState: {
   title: NullableString;
   message: NullableString;

@@ -1,71 +1,78 @@
-import Link from 'next/link'
-import React, {useState} from 'react'
-import styles from '../styles/Login.module.css'
+import Link from "next/link";
+import React, { useState, useContext } from "react";
+import styles from "../styles/Login.module.css";
+import AuthContext from "../context/AuthContext";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [isChecked, setIsChecked] = useState(false);
 
-  const handleOnCheck = () => {
-    setIsChecked(!isChecked);
-  }
+  const { login } = useContext(AuthContext);
 
-  const handleUsername = (event) => {
-    setUsername(event.target.value);
-  }
+	const handleOnCheck = () => {
+		setIsChecked(!isChecked);
+	};
 
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
-  }
+	const handleUsername = (event) => {
+		setUsername(event.target.value);
+	};
 
-  function submitForm(event) {
-    event.preventDefault();
+	const handlePassword = (event) => {
+		setPassword(event.target.value);
+	};
 
-    // create a user object
+	function submitForm(event) {
+		event.preventDefault();
 
-    const user = {
-      username: username,
-      password: password,
-      checked: isChecked
-    }
+		// create a user object
 
-    // TODO: send the user object to the back end
-  }
+		const user = {
+			email: username,
+			password: password,
+		};
 
-  return (
-    <div className = {styles.loginBox}>
-      <h4>Login. Enter your username and password.</h4>
-      <form onSubmit={submitForm}>
-        <label>
-          Username:
-        </label>
-        <input type="text" id="user" name="user" required/>
-        <br/>
-        <label>
-          Password:
-        </label>
-        <input type="text" id="pw" name="pw" required/>
-        <br/>
-        <button type="submit">Submit</button>
-        <br/>
-        <input
-          type="checkbox"
-          id="remember"
-          name="remember"
-          checked={isChecked}
-          onChange={handleOnCheck}
-        />
-        <label>Remember Me</label>
-        <br/>
-        <Link href="/forget-password">
-        Forgot Password?
-        </Link>
-        <br/>
-        <Link href="/register">
-          Create A New Account
-        </Link>
-      </form>
-    </div>
-  )
+		// TODO: send the user object to the back end
+    login(user);
+	}
+
+	return (
+		<div className={styles.loginBox}>
+			<h4>Login. Enter your username and password.</h4>
+			<form onSubmit={submitForm}>
+				<label>Username:</label>
+				<input
+					type="text"
+					id="user"
+					name="user"
+					onChange={handleUsername}
+					required
+				/>
+				<br />
+				<label>Password:</label>
+				<input
+					type="text"
+					id="pw"
+					name="pw"
+					onChange={handlePassword}
+					required
+				/>
+				<br />
+				<button type="submit">Submit</button>
+				<br />
+				<input
+					type="checkbox"
+					id="remember"
+					name="remember"
+					checked={isChecked}
+					onChange={handleOnCheck}
+				/>
+				<label>Remember Me</label>
+				<br />
+				<Link href="/forget-password">Forgot Password?</Link>
+				<br />
+				<Link href="/register">Create A New Account</Link>
+			</form>
+		</div>
+	);
 }

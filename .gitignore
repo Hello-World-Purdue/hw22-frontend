@@ -38,4 +38,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 # other
-package-lock.json
+/package-lock.json

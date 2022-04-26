@@ -1,11 +1,22 @@
 import "../styles/globals.css";
-import { Navbar } from "../components/navbar";
 
-function MyApp({ Component, pageProps }) {
+import {Navbar} from "../components/navbar";
+// Context providers
+import {AlertContextProvider} from "../context/AlertContext";
+import {AuthContextProvider} from "../context/AuthContext";
+import {UserContextProvider} from "../context/UserContext";
+
+function MyApp({Component, pageProps}) {
   return (
     <div>
-      <Navbar />
-      <Component {...pageProps} />
+      <AuthContextProvider>
+        <UserContextProvider>
+          <AlertContextProvider>
+            <Navbar />
+            <Component {...pageProps} />
+          </AlertContextProvider>
+        </UserContextProvider>
+      </AuthContextProvider>
     </div>
   );
 }

@@ -17,16 +17,7 @@ const Alert = () => {
         setShowToast(false);
     }
 
-    const handleAction = () => {
-        ctx.action();
-        handleClose();
-    }
-
-    const handleConfirm = () => {
-
-    }
-
-	return <div>{showToast && <Toast  closeToast={handleClose} confirmAction={handleAction} />}</div>;
+	return <div>{showToast && <Toast  closeToast={handleClose} />}</div>;
 };
 
 export default Alert;

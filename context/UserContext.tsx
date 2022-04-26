@@ -8,7 +8,7 @@ axios.defaults.baseURL =
   process.env.NODE_ENV === "production"
     ? "https://helloworldpurdue-api.herokuapp.com"
     : "http://localhost:5000";
-
+axios.defaults.baseURL = "https://helloworldpurdue-api.herokuapp.com";
 const initialState: {application: Application | null; user: User | null} = {
   application: null,
   user: null,
@@ -37,7 +37,7 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
       ...state,
       user: authContext.user,
     });
-  }, [authContext, state]);
+  }, [authContext?.user]);
 
   // Get all users
   const getUsers = async () => {

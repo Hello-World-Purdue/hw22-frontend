@@ -90,6 +90,8 @@ export const AuthContextProvider = ({
   };
 
   const signupHandler = async (user: User) => {
+    //@ts-ignore
+    user.passwordConfirm = user.password;
     try {
       const res = await axios.post("/api/auth/signup", user, {
         headers: {
@@ -98,13 +100,13 @@ export const AuthContextProvider = ({
       });
 
       localStorage.setItem("userdata", JSON.stringify(res.data));
-
       setState({
         isAuthenticated: true,
         user: res.data.user,
         token: res.data.token,
       });
     } catch (err: any) {
+      console.log("Caught");
       if (err.response) {
         throw err.response.data.error;
       }

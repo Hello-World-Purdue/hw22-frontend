@@ -38,6 +38,7 @@ export default function Login() {
 
 		// TODO: send the user object to the back end
     	login(user);
+		// setAlert("success", "Login Success", "You are now logged in");
 	}
 
 	return (

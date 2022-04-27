@@ -9,10 +9,8 @@ const Alert = () => {
 	useEffect(() => {
 		if (ctx.message) {
 			setShowToast(true);
-		} else {
-			setShowToast(false);
 		}
-	}, [ctx.message]);
+	}, [ctx]);
 
 	const handleClose = () => {
 		ctx.clearAlert();

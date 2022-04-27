@@ -14,9 +14,9 @@ function MyApp({Component, pageProps}) {
       <AuthContextProvider>
         <UserContextProvider>
           <AlertContextProvider>
-            <Navbar />
-            <Component {...pageProps} />
+            {/* <Navbar /> */}
             <Alert />
+            <Component {...pageProps} />
           </AlertContextProvider>
         </UserContextProvider>
       </AuthContextProvider>

@@ -4,7 +4,7 @@ import Toast from "./toast";
 
 const Alert = () => {
 	const ctx = useContext(AlertContext);
-	const [showToast, setShowToast] = useState(false);
+	const [showToast, setShowToast] = useState(true);
 
 	useEffect(() => {
 		if (ctx.message) {

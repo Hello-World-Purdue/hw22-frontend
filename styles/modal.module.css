@@ -14,9 +14,9 @@
 .modalContent {
 	background-color: #fefefe;
 	margin: 15% auto; /* 15% from the top and centered */
-	padding: 20px;
+	padding: 5px;
 	border: 1px solid #888;
-	width: 80%; /* Could be more or less, depending on screen size */
+	width: 60%; /* Could be more or less, depending on screen size */
 }
 
 .modalHeader {
@@ -33,5 +33,17 @@
     padding: 2px 16px;
     background-color: #a13cb3;
     color: white;
-    float: right;
+}
+
+.modalFooter button {
+	border: 1px solid transparent;
+	border-radius: 5px;
+	padding: 0.4rem 0.8rem;
+	background-color: #888;
+	color: #fefefe;
+}
+
+.modalFooter button:hover {
+	cursor: pointer;
+	background-color: #333;
 }

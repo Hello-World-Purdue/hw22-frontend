@@ -8,12 +8,16 @@ const Toast = (props) => {
 	return (
 		<div className={styles.modal}>
 			<div className={styles.modalContent} >
+				<div className={styles.modalHeader}>
 				<strong>{title}</strong>
-				<div>{message}</div>
+				</div>
+				<div className={styles.modalBody}>
+					<p>{message}</p>
+				</div>
 				<div>
 					<small>{comment}</small>
 				</div>
-				<div>
+				<div className={styles.modalFooter}>
 					<button onClick={closeToast}>OK</button>
 				</div>
 			</div>

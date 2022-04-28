@@ -142,9 +142,9 @@ return (
 <h2>FAQ</h2>
 <ul>{listItems}</ul>
 
-<h3>Further questions?</h3>
-<p>Contact us using the form below, or email us at: </p>
-<div>
+<h3>Have any questions?</h3>
+<h4>Send us an email at: helloworldpurdue@gmail.com</h4>
+{/* <div>
   <input
   type="text"
   name="username"
@@ -174,7 +174,7 @@ return (
   onClick={submitHandler}
   type="submit"
   > Submit</button>
-</div>
+</div> */}
 </body>
 
 

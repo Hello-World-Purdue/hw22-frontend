@@ -20,7 +20,7 @@
 }
 
 .modalHeader {
-	padding: 20px 16px;
+	padding: 6px 16px;
 	background-color: #a13cb3;
 	color: white;
 }
@@ -30,9 +30,13 @@
 }
 
 .modalFooter {
-    padding: 2px 16px;
+    padding: 4px 16px;
     background-color: #a13cb3;
     color: white;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 .modalFooter button {

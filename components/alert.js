@@ -4,7 +4,7 @@ import Toast from "./toast";
 
 const Alert = () => {
 	const ctx = useContext(AlertContext);
-	const [showToast, setShowToast] = useState(true);
+	const [showToast, setShowToast] = useState(false);
 
 	useEffect(() => {
 		if (ctx.message) {
@@ -17,7 +17,7 @@ const Alert = () => {
 		setShowToast(false);
 	};
 
-	const { title, message, type } = ctx;
+	const { title, message, type, action } = ctx;
 
 	return (
 		<div>
@@ -27,6 +27,8 @@ const Alert = () => {
 					message={message}
 					comment={type === "error" ? "Please try again" : null}
 					closeToast={handleClose}
+					type={type}
+					action={action}
 				/>
 			)}
 		</div>

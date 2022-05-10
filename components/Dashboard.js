@@ -8,19 +8,7 @@ import UserInfo from "./userInfo";
 import styles from "../styles/dashboard.module.css";
 
 const Dashboard = () => {
-	const [users, setUsers] = useState([
-		{
-			id: 1,
-			name: "Darren Iyer",
-			email: "iyerd@purdue.edu",
-			rsvp: false,
-			checkedIn: false,
-		},
-	]);
-
-	const [acceptUsers, setAcceptedUsers] = useState([]);
-	const [rejectUsers, setRejectedUsers] = useState([]);
-	const [waitlistedUsers, setWaitlistedUsers] = useState([]);
+	const [users, setUsers] = useState([]);
 
 	const userContext = useContext(UserContext);
 	const alertContext = useContext(AlertContext);
@@ -89,7 +77,7 @@ const Dashboard = () => {
 				</thead>
 				<tbody>
 					{users.map((user) => (
-						<tr key={user.id} className={styles.tableRow}>
+						<tr key={user._id} className={styles.tableRow}>
 							<UserInfo
 								user={user}
 								accept={handleAccept}

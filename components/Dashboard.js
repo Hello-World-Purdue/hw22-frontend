@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import UserContext from "../context/UserContext";
+import AdminContext from "../context/AdminContext";
 import AlertContext from "../context/AlertContext";
 
 import UserInfo from "./userInfo";
@@ -10,11 +10,11 @@ import styles from "../styles/dashboard.module.css";
 const Dashboard = () => {
 	const [users, setUsers] = useState([]);
 
-	const userContext = useContext(UserContext);
+	const adminContext = useContext(AdminContext);
 	const alertContext = useContext(AlertContext);
 
 	useEffect(() => {
-		userContext.getUsers()
+		adminContext.getUsers()
 			.then((data) => {
 				console.log("data", data);
 				setUsers(data.users);
@@ -28,7 +28,7 @@ const Dashboard = () => {
 	const setCurrentUser = (userId) => {
 		const curUser = users.filter((user) => user.id === userId)[0];
 		console.log(curUser);
-		userContext.setCurrentUser(curUser);
+		adminContext.setCurrentUser(curUser);
 	};
 
 	const handleAccept = (id, name) => {
@@ -37,7 +37,7 @@ const Dashboard = () => {
 			"confirm",
 			"Accept User",
 			`Accept ${name} to Hello World 2022?`,
-			userContext.acceptUser
+			adminContext.acceptUser
 		);
 	};
 
@@ -47,7 +47,7 @@ const Dashboard = () => {
 			"confirm",
 			"Reject User",
 			`Reject ${name} from Hello World 2022?`,
-			userContext.rejectUser
+			adminContext.rejectUser
 		);
 	};
 
@@ -57,7 +57,7 @@ const Dashboard = () => {
 			"confirm",
 			"Waitlist User",
 			`Add ${name} to Hello World's waitlist?`,
-			userContext.waitlistUser
+			adminContext.waitlistUser
 		);
 	};
 

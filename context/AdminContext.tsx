@@ -18,6 +18,7 @@ const initialState: {
 
 const AdminContext = React.createContext({
 	...initialState,
+	getUsers: () => {},
 	setCurrentUser: (user: User) => {},
 	acceptUser: () => {},
 	acceptUsers: () => {},
@@ -30,6 +31,27 @@ const AdminContext = React.createContext({
 export const AdminContextProvider = (props: React.PropsWithChildren<{}>) => {
 	const authContext = useContext(AuthContext);
 	const [state, setState] = useState(initialState);
+
+	// Get all users
+	const getUsers = async () => {
+		try {
+			console.log("TOKEN", authContext.token);
+			const res = await axios.get(`/api/users/`, {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${authContext.token}`,
+				},
+			});
+
+			console.log("res.data", res.data);
+			return Promise.resolve(res.data);
+		} catch (err: any) {
+			if (err.response) {
+				return Promise.reject(err.response.data.error);
+			}
+			return Promise.reject(err.message);
+		}
+	};
 
 	// Used for accepting, rejecting, waitlisting
 	const setCurrentUser = (user: User) => {
@@ -185,6 +207,7 @@ export const AdminContextProvider = (props: React.PropsWithChildren<{}>) => {
 				acceptedUsers: state.acceptedUsers,
 				rejectedUsers: state.rejectedUsers,
 				waitlistedUsers: state.waitlistedUsers,
+				getUsers,
 				setCurrentUser,
 				acceptUser,
 				acceptUsers,

@@ -24,7 +24,6 @@ const UserContext = React.createContext({
 	...initialState,
 	makeAnnouncement: (ancmnt: string) => {},
 	getAnnouncements: () => {},
-	getUsers: () => {},
 	getUser: (id: string) => {},
 	getUserApp: (id: string) => {},
 	getAuthApp: () => {},
@@ -44,27 +43,6 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [authContext?.user]);
-
-	// Get all users
-	const getUsers = async () => {
-		try {
-			console.log("TOKEN", authContext.token);
-			const res = await axios.get(`/api/users/`, {
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${authContext.token}`,
-				},
-			});
-
-			console.log("res.data", res.data);
-			return Promise.resolve(res.data);
-		} catch (err: any) {
-			if (err.response) {
-				return Promise.reject(err.response.data.error);
-			}
-			return Promise.reject(err.message);
-		}
-	};
 
 	// Get the user by id
 	const getUser = async (id: string) => {
@@ -205,7 +183,6 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
 				user: state.user,
 				application: state.application,
 				// allUsers: state.allUsers,
-				getUsers,
 				getUser,
 				getUserApp,
 				getAuthApp,

@@ -2,11 +2,12 @@ import React, {PropsWithChildren, useState} from "react";
 
 type NullableString = string | null;
 type NullableFunction = Function | null;
+type MessageType = "error" | "success" | "confirm" | null;
 
 const initialState: {
   title: NullableString;
   message: NullableString;
-  type: NullableString;
+  type: MessageType;
   action: NullableFunction;
 } = {
   title: null, // What the error corresponds to (Login error, Application error)
@@ -17,7 +18,7 @@ const initialState: {
 
 const AlertContext = React.createContext({
   ...initialState,
-  setAlert: (type: string, title: string, message: string, action: NullableFunction = null) => {},
+  setAlert: (type: MessageType, title: string, message: string, action: NullableFunction = null) => {},
   clearAlert: () => {},
 });
 
@@ -25,7 +26,7 @@ export const AlertContextProvider = (props: PropsWithChildren<{}>) => {
   const [state, setState] = useState(initialState);
 
   // Set error
-  const setAlert = (type: string, title: string, message: string, action: NullableFunction = null) => {
+  const setAlert = (type: MessageType, title: string, message: string, action: NullableFunction = null) => {
     setState({
       type,
       title,

@@ -14,7 +14,7 @@ export default function Register() {
 	const [passwordWarning, setPasswordWarning] = useState("");
 	const [diffPasswords, setDiffPasswords] = useState(false);
 
-  const { signup } = useContext(AuthContext);
+  	const { signup } = useContext(AuthContext);
 	
 	// event handlers
 	const handleName = (event) => {
@@ -43,7 +43,7 @@ export default function Register() {
 				name: name,
 				email: email,
 				password: password,
-        passwordConfirm: confirmPassword
+        		passwordConfirm: confirmPassword
 			};
 
 			signup(newUser);

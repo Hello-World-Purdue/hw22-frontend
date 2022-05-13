@@ -1,14 +1,18 @@
 import Link from "next/link";
 import React, { useState, useContext } from "react";
 import styles from "../styles/Login.module.css";
+
+// Context imports
 import AuthContext from "../context/AuthContext";
+import AlertContext from "../context/AlertContext";
 
 export default function Login() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [isChecked, setIsChecked] = useState(false);
 
-  const { login } = useContext(AuthContext);
+	const { login } = useContext(AuthContext);
+	const { setAlert } = useContext(AlertContext);
 
 	const handleOnCheck = () => {
 		setIsChecked(!isChecked);
@@ -33,7 +37,8 @@ export default function Login() {
 		};
 
 		// TODO: send the user object to the back end
-    login(user);
+    	login(user);
+		// setAlert("success", "Login Success", "You are now logged in");
 	}
 
 	return (

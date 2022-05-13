@@ -7,17 +7,32 @@ const Alert = () => {
 	const [showToast, setShowToast] = useState(false);
 
 	useEffect(() => {
-		if (ctx.message && ctx.message.length() > 0) {
+		if (ctx.message) {
 			setShowToast(true);
 		}
 	}, [ctx]);
 
-    const handleClose = () => {
-        ctx.clearAlert();
-        setShowToast(false);
-    }
+	const handleClose = () => {
+		ctx.clearAlert();
+		setShowToast(false);
+	};
 
-	return <div>{showToast && <Toast  closeToast={handleClose} />}</div>;
+	const { title, message, type, action } = ctx;
+
+	return (
+		<div>
+			{showToast && (
+				<Toast
+					title={title}
+					message={message}
+					comment={type === "error" ? "Please try again" : null}
+					closeToast={handleClose}
+					type={type}
+					action={action}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default Alert;

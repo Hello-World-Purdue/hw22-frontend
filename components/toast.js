@@ -1,21 +1,41 @@
-import React, { useContext } from "react";
-import AlertContext from "../context/AlertContext";
+import React from "react";
+import styles from "../styles/modal.module.css";
 
 const Toast = (props) => {
 	// const { title, message } = useContext(AlertContext);
-    const ctx = useContext(AlertContext);
+	const { title, message, comment, closeToast, type, action } = props;
+
+	const handleAction = () => {
+		action();
+		closeToast();
+	}
 
 	return (
-		<div>
-			<div>
-				{" "}
-				{/* title */}
-				<div>{/* content */}</div>
-				<div>{/* comment */}</div>
-				<div>
-					{/* buttons */}
-					<button onClick={props.closeToast}>OK</button>
+		<div className={styles.modal}>
+			<div className={styles.modalContent}>
+				<div className={styles.modalHeader}>
+					<strong>{title}</strong>
 				</div>
+				<div className={styles.modalBody}>
+					<p>{message}</p>
+				</div>
+				<div>
+					<small>{comment}</small>
+				</div>
+				{type == "confirm" ? (
+					<div className={styles.modalFooter}>
+						<div>
+							<button onClick={closeToast}>NO</button>
+						</div>
+						<div>
+							<button onClick={handleAction}>YES</button>
+						</div>
+					</div>
+				) : (
+					<div className={styles.modalFooter}>
+						<button onClick={closeToast}>OK</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

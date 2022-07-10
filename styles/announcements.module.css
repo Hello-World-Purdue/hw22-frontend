@@ -1,0 +1,91 @@
+/* Styles for Announcements Page */
+
+.announcementContainer {
+    /* padding: creates extra space within element */
+    padding: 0;
+    /* defines flex container: enables flex context for all its direct children */
+    display: flex;
+    /* flex-direction: defines direction flex items are placed in flex container */
+    flex-direction: column;
+  }
+  
+/* List of Announcements */
+.announcementList {
+    max-width: 100%;
+    /* margin-bottom: sets the margin area on the bottom of an element */
+    /* vh: viewport height --> margin-bottom is 10% of the viewport height */
+    margin-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    /* defines how browser distributes space between and around content items in container */
+    justify-content: center;
+    align-items: left;
+  }
+  
+.announcement {
+    /* border-bottom: 1px solid gray; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin: space around an element's border */
+    margin: 2vh 4vh;
+    padding: 5px 1vh;
+    margin-top: 0;
+  }
+  
+.announcementMessage {
+    font-family: "backissues";
+    /* margin-top: 5px; */
+    font-size: larger;
+  }
+  
+.dateTime {
+    font-family: "backissues";
+    font-weight: 600;
+  }
+  
+.label {
+    /* height: 80px; */
+    /* width: 200px; */
+    width: 135px;
+    padding: 2px;
+    border: 2px solid black;
+    font-family: "backissues";
+    font-weight: 600;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: center;
+  }
+  
+/* Update Colors & Background Colors When Designs are Set */
+.events {
+  background-color: #6f47b9;
+  color: black;
+}
+
+.food {
+  background-color: #492290;
+  color: black;
+}
+
+.logistics {
+  background-color: #a936e0;
+  color: black;
+}
+
+.sponsor {
+  background-color: #eaacff;
+  color: black;
+}
+
+.judging {
+  background-color: #66b3d0;
+  color: black;
+}
+
+.miscellaneous {
+  background-color: #0070a0;
+  color: black;
+}

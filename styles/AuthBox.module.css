@@ -1,0 +1,47 @@
+.loginBox {
+  border-style: solid;
+  background: #110944;
+  padding: 1.25rem;
+  border-radius: 10px;
+}
+.wrapper {
+  padding: 2.75rem;
+  border: 2px solid rgba(120, 121, 241, 1);
+}
+@media screen and (min-width: 600px) {
+  .loginBox {
+    box-shadow: 2px 3px 12px 12px #110944;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wrapper {
+    padding: 0.5rem;
+    width: 100%;
+  }
+}
+
+.gradientBox {
+  background: url(/g.jpg);
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.loginRoot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.input {
+  width: 100%;
+  height: 2rem;
+  background-image: url(/input.png);
+  background-size: contain;
+}

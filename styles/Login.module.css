@@ -1,3 +1,17 @@
-.loginBox {
-  border-style: solid;
+.helloWorld {
+  font-size: 4rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.sub2022 {
+  font-size: 2rem;
+  margin: 0;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.glowText {
+  color: #fcddec;
+  text-shadow: 4px 2px 0px #ef5da8;
 }

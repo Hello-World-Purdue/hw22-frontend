@@ -1,83 +1,93 @@
+import Head from "next/head";
 import Link from "next/link";
-import React, { useState, useContext } from "react";
-import styles from "../styles/Login.module.css";
+import React, {useContext, useState} from "react";
 
+import {AuthBox} from "../components/AuthBox";
+import {Input} from "../components/AuthBox/input";
+import {DecoratedLink} from "../components/Decorated";
+import {GlowText} from "../components/GlowText";
+import AlertContext from "../context/AlertContext";
 // Context imports
 import AuthContext from "../context/AuthContext";
-import AlertContext from "../context/AlertContext";
+import styles from "../styles/Login.module.css";
 
-export default function Login() {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [isChecked, setIsChecked] = useState(false);
+function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-	const { login } = useContext(AuthContext);
-	const { setAlert } = useContext(AlertContext);
+  const {login} = useContext(AuthContext);
+  const {setAlert} = useContext(AlertContext);
 
-	const handleOnCheck = () => {
-		setIsChecked(!isChecked);
-	};
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
+  };
 
-	const handleUsername = (event) => {
-		setUsername(event.target.value);
-	};
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
 
-	const handlePassword = (event) => {
-		setPassword(event.target.value);
-	};
+  function submitForm(event) {
+    event.preventDefault();
 
-	function submitForm(event) {
-		event.preventDefault();
+    // create a user object
 
-		// create a user object
+    const user = {
+      email: username,
+      password: password,
+    };
 
-		const user = {
-			email: username,
-			password: password,
-		};
+    // TODO: send the user object to the back end
+    login(user);
+    // setAlert("success", "Login Success", "You are now logged in");
+  }
 
-		// TODO: send the user object to the back end
-    	login(user);
-		// setAlert("success", "Login Success", "You are now logged in");
-	}
+  return (
+    <AuthBox>
+      <form onSubmit={submitForm}>
+        <div className="belle">
+          <GlowText>Hello World</GlowText>
+          <h4 className={`${styles.sub2022} ${styles.glowText}`}>2022</h4>
+        </div>
+        <div>
+          <Input
+            labelText="Username:"
+            type="text"
+            onChange={handleUsername}
+            required
+            value={username}
+            id="user"
+          />
+        </div>
+        <div className="mt-3">
+          <Input
+            labelText="Password:"
+            type="password"
+            id="pw"
+            onChange={handlePassword}
+            value={password}
+            required
+          />
+        </div>
 
-	return (
-		<div className={styles.loginBox}>
-			<h4>Login. Enter your username and password.</h4>
-			<form onSubmit={submitForm}>
-				<label>Username:</label>
-				<input
-					type="text"
-					id="user"
-					name="user"
-					onChange={handleUsername}
-					required
-				/>
-				<br />
-				<label>Password:</label>
-				<input
-					type="text"
-					id="pw"
-					name="pw"
-					onChange={handlePassword}
-					required
-				/>
-				<br />
-				<button type="submit">Submit</button>
-				<br />
-				<input
-					type="checkbox"
-					id="remember"
-					name="remember"
-					checked={isChecked}
-					onChange={handleOnCheck}
-				/>
-				<label>Remember Me</label>
-				<br />
-				<Link href="/forget-password">Forgot Password?</Link>
-				<br />
-				<Link href="/register">Create A New Account</Link>
-			</form>
-		</div>
-	);
+        {/* <button type="submit">Submit</button> */}
+        <div className="text-center mt-2">
+          <DecoratedLink href="/forgot">Forgot Password?</DecoratedLink>
+        </div>
+        <div className="text-center mt-2">
+          <DecoratedLink href="/register">Create A New Account</DecoratedLink>
+        </div>
+      </form>
+    </AuthBox>
+  );
+}
+
+export default function () {
+  return (
+    <>
+      <Head>
+        <title>Login | Hello World Purdue</title>
+      </Head>
+      <Login />
+    </>
+  );
 }

@@ -1,30 +1,27 @@
 import "../styles/globals.css";
 
-import Navbar from "../components/navbar";
 import Alert from "../components/alert";
-
+import Navbar from "../components/navbar";
+import {AdminContextProvider} from "../context/AdminContext";
 // Context providers
-import { AlertContextProvider } from "../context/AlertContext";
-import { AuthContextProvider } from "../context/AuthContext";
-import { UserContextProvider } from "../context/UserContext";
-import { AdminContextProvider } from "../context/AdminContext";
+import {AlertContextProvider} from "../context/AlertContext";
+import {AuthContextProvider} from "../context/AuthContext";
+import {UserContextProvider} from "../context/UserContext";
 
-function MyApp({ Component, pageProps }) {
-	return (
-		<div>
-			<AuthContextProvider>
-				<UserContextProvider>
-					<AdminContextProvider>
-						<AlertContextProvider>
-							{/* <Navbar /> */}
-							<Alert />
-							<Component {...pageProps} />
-						</AlertContextProvider>
-					</AdminContextProvider>
-				</UserContextProvider>
-			</AuthContextProvider>
-		</div>
-	);
+function MyApp({Component, pageProps}) {
+  return (
+    <AuthContextProvider>
+      <UserContextProvider>
+        <AdminContextProvider>
+          <AlertContextProvider>
+            {/* <Navbar /> */}
+            <Alert />
+            <Component {...pageProps} />
+          </AlertContextProvider>
+        </AdminContextProvider>
+      </UserContextProvider>
+    </AuthContextProvider>
+  );
 }
 
 export default MyApp;

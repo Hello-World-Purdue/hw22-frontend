@@ -1,19 +1,18 @@
 import {DecoratedButton, DecoratedLink} from "components/Decorated";
-import Head from "next/head";
 import React, {useState} from "react";
 
 import {AuthBox} from "../components/AuthBox";
 import {Input} from "../components/AuthBox/input";
 import {GlowText} from "../components/GlowText";
 
-function ForgotPassword() {
+export default function ForgotPassword() {
   const [email, setEmail] = useState("");
 
-  const handleEmail = (event: any) => {
+  const handleEmail = (event) => {
     setEmail(event.target.value);
   };
 
-  function submitForm(event: any) {
+  function submitForm(event) {
     event.preventDefault();
 
     const user = {
@@ -47,16 +46,5 @@ function ForgotPassword() {
         </form>
       </div>
     </AuthBox>
-  );
-}
-
-export default function () {
-  return (
-    <>
-      <Head>
-        <title>Forgot Password | Hello World Purdue</title>
-      </Head>
-      <ForgotPassword />
-    </>
   );
 }

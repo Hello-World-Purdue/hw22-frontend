@@ -11,7 +11,7 @@ import AlertContext from "../context/AlertContext";
 import AuthContext from "../context/AuthContext";
 import styles from "../styles/Login.module.css";
 
-function Login() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -78,16 +78,5 @@ function Login() {
         </div>
       </form>
     </AuthBox>
-  );
-}
-
-export default function () {
-  return (
-    <>
-      <Head>
-        <title>Login | Hello World Purdue</title>
-      </Head>
-      <Login />
-    </>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Form, dev } from "react-bootstrap";
-import CustomButton from "../CustomButton";
+import { DecoratedButton } from "components/Decorated";
 
 import {
 	Gender,
@@ -10,9 +9,9 @@ import {
 	Referral,
 	ShirtSize,
 	Major,
-} from "./enums";
-import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "../../styles/forms.module.css";
+} from "../util/enums";
+
+const styles={}
 
 const initialState = {
 	hackathons: 0,
@@ -210,7 +209,7 @@ const ApplicationForm = (
 				</div>
 
 				<div className={styles.buttonContainer}>
-					<CustomButton>BAM!</CustomButton>
+					<DecoratedButton>Submit</DecoratedButton>
 				</div>
 			</form>
 		</div>

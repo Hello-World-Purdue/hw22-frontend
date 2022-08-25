@@ -1,44 +1,57 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import styles from "../styles/Login.module.css";
+import {DecoratedButton, DecoratedLink} from "components/Decorated";
+import React, {useContext, useState} from "react";
 
-export default function ForgetPassword() {
-	const [email, setEmail] = useState("");
+import {AuthBox} from "../components/AuthBox";
+import {Input} from "../components/AuthBox/input";
+import {GlowText} from "../components/GlowText";
+import AlertContext from "../context/AlertContext";
+import AuthContext from "../context/AuthContext";
 
-	const handleEmail = (event) => {
-		setEmail(event.target.value);
-	};
+export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
 
-	function submitForm(event) {
-		event.preventDefault();
+  const {forgot} = useContext(AuthContext);
+  const {setAlert} = useContext(AlertContext);
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
 
-		const user = {
-			email: email,
-		};
+  async function submitForm(event) {
+    event.preventDefault();
 
-		// TODO: sends the user info to the back end
-	}
+    const res = await forgot(email).catch((e) => {
+      setAlert("error", "Could not send email", e.message);
+      return null;
+    });
 
-	return (
-		<div className={styles.loginBox}>
-			<h4>Forgotten your password? Please enter your email.</h4>
-			<form onSubmit={submitForm}>
-				<label>Email:</label>
-				<input
-					type="text"
-					id="email"
-					name="email"
-					value={email}
-					onChange={handleEmail}
-					required
-				/>
-				<br />
-				<button type="submit">Submit</button>
-				<br />
-				<Link href="/login">
-					<a>Remembered your password?</a>
-				</Link>
-			</form>
-		</div>
-	);
+    if (!res) return;
+    setAlert("success", "Check your inbox", res.msg);
+    // TODO: sends the user info to the back end
+  }
+
+  return (
+    <AuthBox>
+      <div className="text-white">
+        <GlowText>Forgot Password</GlowText>
+        <form onSubmit={submitForm}>
+          <Input
+            id="email"
+            value={email}
+            onChange={handleEmail}
+            required
+            labelText="Email:"
+          />
+
+          <div className="mt-2">
+            <DecoratedButton type="submit">Submit</DecoratedButton>
+          </div>
+          <div className="text-center mt-2">
+            <DecoratedLink href="/login">
+              Remembered your password?
+            </DecoratedLink>
+          </div>
+        </form>
+      </div>
+    </AuthBox>
+  );
 }

@@ -13,50 +13,50 @@ import {useAlreadyLoggedInCheck} from "../util/hooks/use-auth-guard";
 export default function Register() {
   const {push} = useRouter();
   // states
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [passwordWarning, setPasswordWarning] = useState("");
   const [diffPasswords, setDiffPasswords] = useState(false);
   const {setAlert} = useContext(AlertContext);
-  const {signup, user} = useContext(AuthContext);
+  const {signup, reset} = useContext(AuthContext);
   const ready = useAlreadyLoggedInCheck();
   // event handlers
-  const handleName = (event) => {
-    setName(event.target.value);
-  };
 
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePassword = (event) => {
+  const handlePassword = (event: any) => {
     setPassword(event.target.value);
   };
 
-  const handleConfirmPassword = (event) => {
+  const handleConfirmPassword = (event: any) => {
     setConfirmPassword(event.target.value);
   };
 
-  async function submitForm(event) {
+  async function submitForm(event: any) {
     event.preventDefault();
 
     if (password === confirmPassword) {
       // create a new user and send to the back end
 
       const newUser = {
-        name: name,
-        email: email,
         password: password,
         passwordConfirm: confirmPassword,
       };
-
-      await signup(newUser).catch((e) => {
-        setAlert("error", "Could not login", e);
+      const token = new URLSearchParams(location.search).get("token");
+      if (!token)
+        return setAlert(
+          "error",
+          "No token provided",
+          "Please check your email"
+        );
+      await reset({
+        password,
+        passwordConfirm: confirmPassword,
+        token,
+      }).catch((e) => {
+        setAlert("error", "Could not reset password", e);
       });
-      push("/");
+      push("/login");
     } else {
       // create an error message (inconsistent password) and displays it
 
@@ -71,32 +71,14 @@ export default function Register() {
   return (
     <AuthBox>
       <div className="text-white sm:w-[400px]">
-        <GlowText>Sign Up</GlowText>
+        <GlowText>Reset Password</GlowText>
         <div className="mt-5">
           {diffPasswords && <div>{passwordWarning}</div>}
         </div>
         <form onSubmit={submitForm}>
           <div>
             <Input
-              labelText="Name:"
-              id="name"
-              value={name}
-              onChange={handleName}
-              required
-            />
-          </div>
-          <div>
-            <Input
-              labelText="Email:"
-              id="email"
-              value={email}
-              onChange={handleEmail}
-              required
-            />
-          </div>
-          <div>
-            <Input
-              labelText="Password:"
+              labelText="New Password:"
               id="pw"
               type="password"
               value={password}
@@ -116,11 +98,6 @@ export default function Register() {
           </div>
           <div className="mt-2">
             <DecoratedButton>Submit</DecoratedButton>
-          </div>
-          <div className="mt-2 text-center">
-            <DecoratedLink href="/login">
-              Already Have an Account?
-            </DecoratedLink>
           </div>
         </form>
       </div>

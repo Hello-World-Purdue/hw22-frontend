@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 import {AuthBox} from "../components/AuthBox";
 import {Input} from "../components/AuthBox/input";
@@ -11,15 +11,17 @@ import AlertContext from "../context/AlertContext";
 // Context imports
 import AuthContext from "../context/AuthContext";
 import styles from "../styles/Login.module.css";
+import {useAlreadyLoggedInCheck} from "../util/hooks/use-auth-guard";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const {push} = useRouter();
-  const {login} = useContext(AuthContext);
+  const {login, user} = useContext(AuthContext);
   const {setAlert} = useContext(AlertContext);
 
+  const ready = useAlreadyLoggedInCheck();
   const handleUsername = (event) => {
     setUsername(event.target.value);
   };
@@ -45,7 +47,7 @@ export default function Login() {
     push("/");
     // setAlert("success", "Login Success", "You are now logged in");
   }
-
+  if (!ready) return null;
   return (
     <AuthBox>
       <form onSubmit={submitForm}>

@@ -20,9 +20,9 @@ const initialState: {
 
 const AuthContext = React.createContext({
   ...initialState,
-  login: async (user: User) => {},
+  login: async (user: Partial<User>) => {},
   logout: async () => {},
-  signup: async (user: User) => {},
+  signup: async (user: Partial<User>) => {},
   forgot: async (email: string) => {},
   reset: async (formData: any) => {},
   update: async (user: User) => {},
@@ -57,7 +57,7 @@ export const AuthContextProvider = ({
     // console.log("state set");
   }, []);
 
-  const loginHandler = async (user: User) => {
+  const loginHandler = async (user: Partial<User>) => {
     try {
       const res = await axios.post("/api/auth/login", user, {
         headers: {
@@ -89,7 +89,7 @@ export const AuthContextProvider = ({
     });
   };
 
-  const signupHandler = async (user: User) => {
+  const signupHandler = async (user: Partial<User>) => {
     try {
       const res = await axios.post("/api/auth/signup", user, {
         headers: {
@@ -199,7 +199,7 @@ export const AuthContextProvider = ({
         rsvp,
       }}
     >
-      {children}
+      {state === initialState ? null : children}
     </AuthContext.Provider>
   );
 };

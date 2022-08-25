@@ -1,14 +1,17 @@
 import Link from "next/link";
+import {useRouter} from "next/router";
 import React, {useContext, useState} from "react";
 
 import {AuthBox} from "../components/AuthBox";
 import {Input} from "../components/AuthBox/input";
 import {DecoratedButton, DecoratedLink} from "../components/Decorated";
 import {GlowText} from "../components/GlowText";
+import AlertContext from "../context/AlertContext";
 import AuthContext from "../context/AuthContext";
 import styles from "../styles/Login.module.css";
 
 export default function Register() {
+  const {push} = useRouter();
   // states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +20,7 @@ export default function Register() {
 
   const [passwordWarning, setPasswordWarning] = useState("");
   const [diffPasswords, setDiffPasswords] = useState(false);
-
+  const {setAlert} = useContext(AlertContext);
   const {signup} = useContext(AuthContext);
 
   // event handlers
@@ -37,7 +40,7 @@ export default function Register() {
     setConfirmPassword(event.target.value);
   };
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
 
     if (password === confirmPassword) {
@@ -50,7 +53,10 @@ export default function Register() {
         passwordConfirm: confirmPassword,
       };
 
-      signup(newUser);
+      await signup(newUser).catch((e) => {
+        setAlert("error", "Could not login", e);
+      });
+      push("/");
     } else {
       // create an error message (inconsistent password) and displays it
 

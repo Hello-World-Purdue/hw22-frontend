@@ -20,13 +20,13 @@ const initialState: {
 
 const AuthContext = React.createContext({
   ...initialState,
-  login: (user: User) => {},
-  logout: () => {},
-  signup: (user: User) => {},
-  forgot: (email: string) => {},
-  reset: (formData: any) => {},
-  update: (user: User) => {},
-  rsvp: (id: string) => Promise.resolve(),
+  login: async (user: User) => {},
+  logout: async () => {},
+  signup: async (user: User) => {},
+  forgot: async (email: string) => {},
+  reset: async (formData: any) => {},
+  update: async (user: User) => {},
+  rsvp: async (id: string) => Promise.resolve(),
 });
 
 export const AuthContextProvider = ({
@@ -80,7 +80,7 @@ export const AuthContextProvider = ({
     }
   };
 
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
     localStorage.removeItem("userdata");
     setState({
       isAuthenticated: false,
@@ -117,11 +117,13 @@ export const AuthContextProvider = ({
     };
 
     try {
-      await axios.post("/api/auth/forgot", requestBody, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      return (
+        await axios.post("/api/auth/forgot", requestBody, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+      ).data;
     } catch (err: any) {
       if (err.response) {
         throw err.response.data.error;
@@ -130,7 +132,7 @@ export const AuthContextProvider = ({
     }
   };
 
-  const updateUser = (user: User) => {
+  const updateUser = async (user: User) => {
     setState({
       ...state,
       user,

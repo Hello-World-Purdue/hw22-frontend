@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
+import {useRouter} from "next/router";
 import React, {useContext, useState} from "react";
 
 import {AuthBox} from "../components/AuthBox";
 import {Input} from "../components/AuthBox/input";
-import {DecoratedLink} from "../components/Decorated";
+import {DecoratedButton, DecoratedLink} from "../components/Decorated";
 import {GlowText} from "../components/GlowText";
 import AlertContext from "../context/AlertContext";
 // Context imports
@@ -15,6 +16,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const {push} = useRouter();
   const {login} = useContext(AuthContext);
   const {setAlert} = useContext(AlertContext);
 
@@ -26,7 +28,7 @@ export default function Login() {
     setPassword(event.target.value);
   };
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
 
     // create a user object
@@ -37,7 +39,10 @@ export default function Login() {
     };
 
     // TODO: send the user object to the back end
-    login(user);
+    await login(user).catch((e) => {
+      setAlert("error", "Could not login", e);
+    });
+    push("/");
     // setAlert("success", "Login Success", "You are now logged in");
   }
 
@@ -69,7 +74,9 @@ export default function Login() {
           />
         </div>
 
-        {/* <button type="submit">Submit</button> */}
+        <div className="mt-2">
+          <DecoratedButton>Submit</DecoratedButton>
+        </div>
         <div className="text-center mt-2">
           <DecoratedLink href="/forgot">Forgot Password?</DecoratedLink>
         </div>

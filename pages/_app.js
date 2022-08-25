@@ -2,7 +2,6 @@ import "../styles/globals.css";
 
 import Alert from "../components/alert";
 import Navbar from "../components/navbar";
-
 // Context providers
 import {AdminContextProvider} from "../context/AdminContext";
 import {AlertContextProvider} from "../context/AlertContext";
@@ -16,8 +15,10 @@ function MyApp({Component, pageProps}) {
         <AdminContextProvider>
           <AlertContextProvider>
             <Navbar />
-            <Alert />
-            <Component {...pageProps} />
+            <div>
+              <Alert />
+              <Component {...pageProps} />
+            </div>
           </AlertContextProvider>
         </AdminContextProvider>
       </UserContextProvider>

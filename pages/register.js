@@ -63,7 +63,7 @@ export default function Register() {
 
   return (
     <AuthBox>
-      <div className={"text-white sm:w-[400px]"}>
+      <div className="text-white sm:w-[400px]">
         <GlowText>Sign Up</GlowText>
         <div className="mt-5">
           {diffPasswords && <div>{passwordWarning}</div>}

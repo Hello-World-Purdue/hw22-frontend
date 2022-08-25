@@ -15,11 +15,6 @@ function Apply() {
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (!user) {
-      router.push("/login");
-    }
-  }, []);
 
   const submitAnswers = async (userData: FormData) => {
     try {

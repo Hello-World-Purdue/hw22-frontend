@@ -6,7 +6,7 @@ import Link from "next/link";
 import banner from "../images/landing/banner.png";
 import bg from "../images/landing/bg.jpg";
 import castle from "../images/landing/castle.png";
-import gradient from "../images/landing/gradient.jpg";
+import gradient from "../images/landing/gradient.png";
 import interlude from "../images/landing/interlude.png";
 
 function Home() {
@@ -43,7 +43,7 @@ function Home() {
               September 17th-18th
             </h2>
             <div className="max-w-[70%]">
-              <Image src={gradient} alt="gradient" />
+              <Image src="/public/landing-gradient.png" alt="gradient" />
             </div>
             <div className="p-6 sm:flex gap-4">
               <h3 className="text-2xl sm:text-7xl">Meet us there:</h3>

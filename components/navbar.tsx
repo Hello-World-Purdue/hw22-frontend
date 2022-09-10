@@ -32,7 +32,8 @@ export const Navbar = () => {
           </button>
         </div>
         <div
-          className={`sm:flex sm:h-14 py-2 mb-4  transition sm:flex-row flex-col items-center gap-2 text-white px-4 w-full ${
+          className={`sm:flex z-50 h-full bg-black bg-opacity-70 sm:bg-transparent absolute sm:relative sm:h-14 py-2 mb-4
+          transition sm:flex-row flex-col items-center gap-2 text-white px-4 w-full ${
             active ? "flex" : "hidden"
           }`}
         >

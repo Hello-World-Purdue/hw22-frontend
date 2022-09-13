@@ -199,7 +199,7 @@ export const AuthContextProvider = ({
         rsvp,
       }}
     >
-      {state === initialState ? null : children}
+      {state === initialState ? children : children}
     </AuthContext.Provider>
   );
 };

@@ -12,11 +12,13 @@
     "axios": "^0.27.2",
     "next": "12.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "websocket": "1.0.34"
   },
   "devDependencies": {
     "@types/node": "18.6.4",
     "@types/react": "^18.0.16",
+    "@types/websocket": "^1.0.4",
     "autoprefixer": "^10.4.8",
     "cross-env": "^7.0.3",
     "eslint": "8.21.0",

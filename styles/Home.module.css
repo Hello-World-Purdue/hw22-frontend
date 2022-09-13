@@ -37,8 +37,9 @@
 .navbarLogin {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-between; */
   justify-items: right;
+  margin-right: 10px;
 }
 
 .navLink {

@@ -100,6 +100,9 @@ export const Navbar = () => {
 				<Link href="/sponsors">
 					<p className={styles.navLink}>Sponsors</p>
 				</Link>
+        {/* <Link href="/">
+					<p className={styles.navLink}>HelpQ</p>
+				</Link> */}
 			</div>
 			<div className={styles.navbarLogin}>
 				{user ? (

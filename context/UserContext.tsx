@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 
 import AuthContext from "./AuthContext";
-import { Application, User } from "./types";
+import { Announcement, Application, User } from "./types";
 
 // axios.defaults.baseURL =
 //   process.env.NODE_ENV === "production"
@@ -22,8 +22,8 @@ const initialState: {
 
 const UserContext = React.createContext({
 	...initialState,
-	makeAnnouncement: (ancmnt: string) => {},
-	getAnnouncements: () => {},
+	makeAnnouncement: (ancmnt: Announcement) => {},
+	getAnnouncements: (): any => {},
 	getUser: (id: string) => {},
 	getUserApp: (id: string) => {},
 	getAuthApp: () => {},
@@ -84,13 +84,13 @@ export const UserContextProvider = (props: React.PropsWithChildren<{}>) => {
 			return Promise.resolve(res.data);
 		} catch (err: any) {
 			if (err.response) {
-				throw err.response.data.error;
+				return Promise.reject(err.response);
 			}
-			throw err.message;
+			return Promise.reject(err.message);
 		}
 	};
 
-	const makeAnnouncement = async (ancmnt: string) => {
+	const makeAnnouncement = async (ancmnt: Announcement) => {
 		try {
 			const res = await axios.post("/api/announcement", ancmnt, {
 				headers: {

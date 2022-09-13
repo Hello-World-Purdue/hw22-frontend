@@ -3,8 +3,6 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 import React, {useContext, useState} from "react";
 
-// import styles from "../styles/navbarstyle.module.css";
-
 export const Navbar = () => {
   const {user, logout} = useContext(AuthContext);
   const {push} = useRouter();
@@ -45,8 +43,8 @@ export const Navbar = () => {
           <Link href="/faq" className="">
             FAQ&apos;S
           </Link>
-          <Link href="/resources" className="">
-            RESOURCES
+          <Link href="/events" className="">
+            EVENTS
           </Link>
           <Link href="/sponsors" className="">
             SPONSORS

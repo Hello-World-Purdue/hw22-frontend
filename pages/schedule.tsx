@@ -5,7 +5,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { data } from '../util/events';
 import { Event } from "../components/Event";
 
-export default function Events() {
+export default function Schedule() {
 
   const [eventsData, setEventsData] = useState(data);
   const [count, setCount] = useState(0);

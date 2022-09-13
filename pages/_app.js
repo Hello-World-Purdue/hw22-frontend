@@ -7,6 +7,7 @@ import { AdminContextProvider } from "../context/AdminContext";
 import { AlertContextProvider } from "../context/AlertContext";
 import { AuthContextProvider } from "../context/AuthContext";
 import { UserContextProvider } from "../context/UserContext";
+import Footer from "../components/footer";
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }) {
 						<Navbar />
 						<Alert />
 						<Component {...pageProps} />
+						<Footer />
 					</AlertContextProvider>
 				</AdminContextProvider>
 			</UserContextProvider>

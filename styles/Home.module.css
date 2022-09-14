@@ -273,3 +273,17 @@
     flex-direction: column;
   }
 }
+
+.faqQuestion{
+  position: absolute;
+
+  font-family: 'La Belle Aurore';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 140px;
+  /* identical to box height, or 175% */
+
+  color: #440929;
+
+}

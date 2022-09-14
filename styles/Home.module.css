@@ -137,7 +137,7 @@
   font-family: 'Amaranth';
   font-size: x-large;
   color: #eaeaea;
-  text-shadow: 3px 3px #110944;
+  text-shadow: 2px 2px #110944;
   font-weight: 400;
 }
 
@@ -150,14 +150,41 @@
 }
 
 .sponsorBox {
-  height: 300px;
-  width: 300px;
+  height: 60vh;
+  width: 30vw;
+  padding: 2px 3px;
   background-color: #A5A6F6;
   border: 2px solid #333;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+/* Header styles */
+.header {
+  width: 100%;
+  background-image: url('/images/banner_1.png');
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 10px;
+}
+
+.headerTitle {
+  font-family: 'La Belle Aurore';
+  font-size: xx-large;
+  font-weight: 500;
+  color: #eaeaea;
+  text-shadow: 3px 3px lightskyblue;
+}
+
+.upcomingEvents,
+.pastEvents {
+  font-family: 'La Belle Aurore';
+  font-size: x-large;
+  font-weight: 400;
+  color: #EF5DA8;
 }
 
 .title a {

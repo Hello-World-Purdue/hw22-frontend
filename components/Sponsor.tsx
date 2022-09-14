@@ -16,6 +16,9 @@ const Sponsor: React.FC<{
                 {sponsor.name}
             </div>
             <div>
+                {sponsor.blurb}
+            </div>
+            <div>
                 <Image src={`/${sponsorKey}.png`} height={sponsor.height} width={sponsor.width} alt="gradient" />
             </div>
         </div>

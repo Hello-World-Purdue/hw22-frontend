@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/header";
 import { questions } from "../util/questions";
 
 export default function Faq() {
@@ -17,7 +18,7 @@ export default function Faq() {
 
 	return (
 		<div>
-			<h2>FAQ</h2>
+			<Header title="FAQ" />
 			{listItems}
 
 			<h3>Further questions?</h3>

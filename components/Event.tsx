@@ -124,11 +124,9 @@ export const Event: FC<EventProps> = ({ eventsData }: EventProps) => {
 
 	return (
     <div style={{ height: "20vh", width: "20vw" }}>
-			<div style={{
-        backgroundImage: "url(/upcomingEvents.png)",
-      }}>
-    </div>
-			
+			<div className={styles.upcomingEvents}>
+				Upcoming Events
+			</div>
 			<div className={styles.event_resource_grid}>
 				{currEventsDivs.map((r: any, index: number) => (
 					<div key={index}>{r}</div>
@@ -136,17 +134,8 @@ export const Event: FC<EventProps> = ({ eventsData }: EventProps) => {
 			</div>
 
 			{/* past */}
-			<div>
-				<p
-					style={{
-						textAlign: "center",
-						fontWeight: "bold",
-						fontSize: "4vh",
-						paddingLeft: "10px",
-					}}
-				>
-					PAST EVENTS
-				</p>
+			<div className={styles.pastEvents}>
+				Past Events
 			</div>
 			<div
 				style={{

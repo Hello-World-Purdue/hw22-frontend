@@ -120,6 +120,46 @@
   flex-grow: 1;
 }
 
+/* Sponsors styles */
+.sponsorGrid {
+  display: flex;
+  flex-direction: column;
+}
+
+.sponsorColumn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 35px 0;
+}
+
+.sponsorName {
+  font-family: 'Amaranth';
+  font-size: x-large;
+  color: #eaeaea;
+  text-shadow: 3px 3px #110944;
+  font-weight: 400;
+}
+
+.sponsorLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 20px;
+}
+
+.sponsorBox {
+  height: 300px;
+  width: 300px;
+  background-color: #A5A6F6;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;

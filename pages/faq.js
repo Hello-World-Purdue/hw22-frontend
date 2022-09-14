@@ -1,32 +1,29 @@
-import React, { FC, useState } from "react";
-import { people } from "../util/questions";
+import React from "react";
+import { questions } from "../util/questions";
 
 export default function Faq() {
-	const listItems = people.map((person) => (
-		<li key={person.number}>
-			<p>
-				<b>{person.question}</b>
-			</p>
-			<p>
-				<ol>{person.answera}</ol>
-				<ul>{person.answeri}</ul>
-				<ul>{person.answerii}</ul>
-				<ul>{person.answeriii}</ul>
-				<ol>{person.answerb}</ol>
-				<ol>{person.answerc}</ol>
-			</p>
-		</li>
+	let idx = 0;
+	const listItems = questions.map((question) => (
+		<div key={idx++}>
+			<h4><strong>{question.q}</strong></h4>
+			<ul>
+				{	
+					question.a.map((ans) => (
+					<li key={idx++}>{ans}</li>
+				))}
+			</ul>
+		</div>
 	));
 
 	return (
-		<body>
+		<div>
 			<h2>FAQ</h2>
-			<ul>{listItems}</ul>
+			{listItems}
 
 			<h3>Further questions?</h3>
 			<p>
 				Email us at: <strong>helloworldpurdue@gmail.com</strong>
 			</p>
-		</body>
+		</div>
 	);
 }

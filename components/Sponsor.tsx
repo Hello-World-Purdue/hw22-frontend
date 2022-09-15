@@ -15,7 +15,7 @@ const Sponsor: React.FC<{
             <div className={styles.sponsorName}>
                 {sponsor.name}
             </div>
-            <div>
+            <div className={styles.sponsorBlurb}>
                 {sponsor.blurb}
             </div>
             <div>

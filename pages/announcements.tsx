@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { w3cwebsocket as WebSocket } from "websocket";
+import Image from "next/image";
 
 import { CreateAnnouncementsButton } from "../components/AnnouncementForm";
-import AnnouncementLabel from "../components/AnnouncementLabel";
 
 import UserContext from "../context/UserContext";
 import AuthContext from "../context/AuthContext";
 
 import styles from "../styles/Home.module.css";
-import Header from "components/header";
 
 interface Announcement {
 	label:
@@ -101,12 +100,19 @@ function Announcements() {
 									key={announcement.updatedAt}
 									className={styles.announcement}
 								>
-									<div className="row" style={{ width: "100%" }}>
-										<div className="col">
-											<AnnouncementLabel annType={announcement.label} />
+									<div className={styles.labelContainer}>
+										<div className={styles.annLabel}>
+											{announcement.label === "Miscellaneous"
+												? "MISC"
+												: announcement.label === "Sponsor"
+												? "PARTNER"
+												: announcement.label.toUpperCase()}
 										</div>
-										<div className="w-100"></div>
-										<div className="col announcements-time">
+									</div>
+									<div className={styles.annContainer}>
+										<div className={styles.annText}>{announcement.body}</div>
+										<div></div>
+										<div className={styles.annDate}>
 											{new Date(announcement.updatedAt).toLocaleString(
 												"en-US",
 												{
@@ -120,8 +126,10 @@ function Announcements() {
 											)}
 										</div>
 									</div>
-									<div className={`${styles.annMessage} text-break`}>
-										{announcement.body}
+									<div className={styles.annContainer}>
+									<div></div>
+									<Image src="/design_black.png" height={50} width={180} alt="gradient" />
+									<div></div>
 									</div>
 								</div>
 							);

@@ -12,7 +12,8 @@
   align-items: center;
 }
 
-/* Navbar Styles */
+/* NAVBAR STYLES */
+
 .navbar {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -71,7 +72,8 @@
   font-weight: 400;
 }
 
-/* Footer Styles */
+/* FOOTER STYLES */
+
 .footer {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -120,7 +122,8 @@
   flex-grow: 1;
 }
 
-/* Sponsors styles */
+/* SPONSORS STYLES */
+
 .sponsorGrid {
   display: flex;
   flex-direction: column;
@@ -161,7 +164,8 @@
   justify-content: space-evenly;
 }
 
-/* Header styles */
+/* HEADER STYLES */
+
 .faqHeader {
   width: 100%;
   height: 35vh;
@@ -246,12 +250,69 @@
   margin-right: 2vw;
 }
 
+/* EVENTS STYLING */
+
+.eventPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .upcomingEvents,
 .pastEvents {
   font-family: 'La Belle Aurore';
-  font-size: x-large;
-  font-weight: 400;
+  font-size: 5rem;
+  font-weight: 600;
   color: #EF5DA8;
+  text-shadow: 10px 10px #fff;
+}
+
+.eventGrid {
+  display: grid;
+  grid-template-columns: 18vw 18vw;
+  justify-content: center;
+}
+
+.currentEventContainer {
+  height: 18vh;
+  width: 15vw;
+  background-color: #110944;
+  border: 2px solid #eaeaea;
+  padding: 5px 5px;
+  margin: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pastEventContainer {
+  height: 18vh;
+  width: 15vw;
+  background-color: #6F47B9;
+  border: 2px solid #eaeaea;
+  padding: 5px 5px;
+  margin: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventName {
+  font-family: 'Amaranth';
+  color: #fcddec;
+  font-weight: 300;
+  font-size: larger;
+  margin-bottom: 0.2rem;
+}
+
+.eventText {
+  font-family: 'Amaranth';
+  color: #f178b6;
+  font-weight: 100;
+  font-size: small;
 }
 
 .title a {
@@ -359,11 +420,10 @@
 }
 
 .faqQuestionContainer {
-  height: 5vh;
+  height: 4rem;
   width: 50%;
   background-color: #A5A6F6;
   border: 2px solid #110944;
-  padding: 2px 5px;
   display: flex;
   align-items: center;
 }
@@ -377,6 +437,8 @@
   font-family: 'La Belle Aurore';
   font-size: x-large;
   font-weight: 400;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
   color: #110944;
 }
 

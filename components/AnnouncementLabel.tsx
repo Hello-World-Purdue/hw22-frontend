@@ -7,31 +7,9 @@ const CustomLabel: React.FC<{
     | "Judging" | "Logistics"
     | "Sponsor" | "Miscellaneous";
 }> = (props) => {
-  const labelClasses = [styles.label];
-
-  switch (props.annType) {
-    case "Events":
-      labelClasses.push(styles.events);
-      break;
-    case "Food":
-      labelClasses.push(styles.food);
-      break;
-    case "Judging":
-      labelClasses.push(styles.judging);
-      break;
-    case "Logistics":
-      labelClasses.push(styles.logistics);
-      break;
-    case "Sponsor":
-      labelClasses.push(styles.sponsor);
-      break;
-    case "Miscellaneous":
-      labelClasses.push(styles.misc);
-      break;
-  }
 
   return (
-    <div className={labelClasses.join(" ")}>
+    <div className={styles.annLabel}>
       {props.annType === "Miscellaneous"
         ? "MISC"
         : props.annType === "Sponsor"

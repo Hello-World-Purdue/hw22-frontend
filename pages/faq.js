@@ -29,7 +29,9 @@ export default function Faq() {
 
 	return (
 		<div>
-			<Header title="FAQ" />
+			<div className={styles.faqHeader}>
+				<h2 className={styles.faqHeaderTitle}>FAQ</h2>
+			</div>
 			<div className={styles.faqList}>{listItems}</div>
 		</div>
 	);

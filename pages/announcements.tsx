@@ -84,7 +84,9 @@ function Announcements() {
 
 	return (
 		<div className="">
-			<Header title="Announcements" />
+			<div className={styles.annHeader}>
+				<h2 className={styles.annHeaderTitle}>Announcements</h2>
+			</div>
 			{isAuthenticated && (user?.role === "ADMIN" || user?.role === "EXEC") && (
 				<CreateAnnouncementsButton />
 			)}

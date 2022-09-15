@@ -2,7 +2,6 @@ import styles from "../styles/Home.module.css";
 import React, { useEffect, useState } from "react";
 import { data } from "../util/events";
 import { Event } from "../components/Event";
-import Header from "components/header";
 
 export default function Schedule() {
 	const [eventsData, setEventsData] = useState(data);
@@ -17,7 +16,9 @@ export default function Schedule() {
 
 	return (
 		<div>
-			<Header title="Schedule" />
+			<div className={styles.scheduleHeader}>
+			<h2 className={styles.scheduleHeaderTitle}>Schedule</h2>
+			</div>
 			<div className={styles.events}>
 				<Event
 					eventsData={eventsData}

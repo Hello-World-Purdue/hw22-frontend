@@ -12,13 +12,107 @@
   align-items: center;
 }
 
-.footer {
+/* NAVBAR STYLES */
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
   display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #110944;
+  position: sticky;
+  top: 0;
+}
+
+.navigation {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-items: left;
+}
+
+.navbarLogin {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  justify-items: right;
+  margin-right: 10px;
+}
+
+.navLink {
+  font-family: 'Amaranth';
+  color: #eaeaea;
+  text-shadow: 2px solid blueviolet;
+}
+
+.navLink:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.navbarLogo:hover {
+  cursor: pointer;
+}
+
+.loginButton {
+  background-color: #A5A6F6;
+  padding: 2px 5px;
+  color: #110944;
+  font-family: 'Amarante';
+  font-weight: 100;
+}
+
+.loginButton:hover {
+  cursor: pointer;
+  border: 2px solid #A5A6F6;
+  font-weight: 400;
+}
+
+/* FOOTER STYLES */
+
+.footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background-color: #110944;
+  position: sticky;
+  bottom: 0;
+}
+
+.footerLogo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.footerNav {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-items: center;
+}
+
+.footerLink {
+  font-family: 'Amaranth';
+  color: #eaeaea;
+  text-shadow: 2px solid blueviolet;
+}
+
+.footerLink:hover {
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .footer a {
@@ -26,6 +120,205 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+}
+
+/* SPONSORS STYLES */
+
+.sponsorGrid {
+  display: flex;
+  flex-direction: column;
+}
+
+.sponsorColumn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 35px 0;
+}
+
+.sponsorName {
+  font-family: 'Amaranth';
+  font-size: x-large;
+  color: #eaeaea;
+  text-shadow: 2px 2px #110944;
+  font-weight: 400;
+}
+
+.sponsorLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 20px;
+}
+
+.sponsorBox {
+  height: 60vh;
+  width: 30vw;
+  padding: 3px 3px;
+  background-color: #A5A6F6;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.sponsorBlurb {
+  font-family: 'Amaranth';
+  font-weight: 300;
+  font-size: small;
+}
+
+/* HEADER STYLES */
+
+.faqHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/faq_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.sponsorsHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/sponsor_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.annHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/ann_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.scheduleHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/schedule_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.faqHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #eaeaea;
+  text-shadow: 3px 3px lightskyblue;
+  margin-right: 2vw;
+}
+
+.sponsorsHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #ef5dab;
+  text-shadow: 3px 3px #fcddec;
+  margin-right: 2vw;
+}
+
+.scheduleHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #eaeaea;
+  text-shadow: 3px 3px lightskyblue;
+  margin-right: 2vw;
+}
+
+.annHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #ef5dab;
+  text-shadow: 3px 3px #fcddec;
+  margin-right: 2vw;
+}
+
+/* EVENTS STYLING */
+
+.eventPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upcomingEvents,
+.pastEvents {
+  font-family: 'La Belle Aurore';
+  font-size: 5rem;
+  font-weight: 600;
+  color: #EF5DA8;
+  text-shadow: 10px 10px #fff;
+}
+
+.eventGrid {
+  display: grid;
+  grid-template-columns: 18vw 18vw;
+  justify-content: center;
+}
+
+.currentEventContainer {
+  height: 18vh;
+  width: 15vw;
+  background-color: #110944;
+  border: 2px solid #eaeaea;
+  padding: 5px 5px;
+  margin: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pastEventContainer {
+  height: 18vh;
+  width: 15vw;
+  background-color: #6F47B9;
+  border: 2px solid #eaeaea;
+  padding: 5px 5px;
+  margin: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventName {
+  font-family: 'Amaranth';
+  color: #fcddec;
+  font-weight: 300;
+  font-size: larger;
+  margin-bottom: 0.2rem;
+}
+
+.eventText {
+  font-family: 'Amaranth';
+  color: #f178b6;
+  font-weight: 100;
+  font-size: small;
 }
 
 .title a {
@@ -113,4 +406,88 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+/* FAQ STYLES */
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: auto;
+  min-height: 20vh;
+  margin-bottom: 10px;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-around;
+}
+
+.faqQuestionContainer {
+  height: 4rem;
+  width: 50%;
+  background-color: #A5A6F6;
+  border: 2px solid #110944;
+  display: flex;
+  align-items: center;
+}
+
+.faqAnswerContainer {
+  width: 45%;
+  margin-bottom: 10px;
+}
+
+.faqQuestion{
+  font-family: 'La Belle Aurore';
+  font-size: x-large;
+  font-weight: 400;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+  color: #110944;
+}
+
+.faqAnswer {
+  font-weight: bold;
+  font-family: 'Amaranth';
+}
+
+/* ANNOUNCEMENT STYLES */
+
+.announcement {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+.labelContainer {
+  height: 5vh;
+  width: 6vw;
+  background-color: #A5A6F6;
+  border: solid 2px #110944;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.annLabel {
+  font-family: 'Amaranth';
+  font-size: large;
+  font-weight: bold;
+}
+
+.annContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5rem 1rem;
+}
+
+.annText,
+.annDate {
+  font-family: 'Amaranth';
+  font-size: large;
 }

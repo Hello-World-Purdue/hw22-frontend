@@ -22,3 +22,9 @@ export interface User {
   updatedAt: string;
   __v: string;
 }
+
+export interface Announcement {
+  body: string;
+  title: string;
+  label: string;
+}

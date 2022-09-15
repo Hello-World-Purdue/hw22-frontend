@@ -137,7 +137,7 @@
   font-family: 'Amaranth';
   font-size: x-large;
   color: #eaeaea;
-  text-shadow: 3px 3px #110944;
+  text-shadow: 2px 2px #110944;
   font-weight: 400;
 }
 
@@ -150,14 +150,108 @@
 }
 
 .sponsorBox {
-  height: 300px;
-  width: 300px;
+  height: 60vh;
+  width: 30vw;
+  padding: 2px 3px;
   background-color: #A5A6F6;
   border: 2px solid #333;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+/* Header styles */
+.faqHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/faq_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.sponsorsHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/sponsor_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.annHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/ann_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.scheduleHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/schedule_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
+.faqHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #eaeaea;
+  text-shadow: 3px 3px lightskyblue;
+  margin-right: 2vw;
+}
+
+.sponsorsHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #ef5dab;
+  text-shadow: 3px 3px #fcddec;
+  margin-right: 2vw;
+}
+
+.scheduleHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #eaeaea;
+  text-shadow: 3px 3px lightskyblue;
+  margin-right: 2vw;
+}
+
+.annHeaderTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color: #ef5dab;
+  text-shadow: 3px 3px #fcddec;
+  margin-right: 2vw;
+}
+
+.upcomingEvents,
+.pastEvents {
+  font-family: 'La Belle Aurore';
+  font-size: x-large;
+  font-weight: 400;
+  color: #EF5DA8;
 }
 
 .title a {
@@ -245,4 +339,48 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: auto;
+  min-height: 20vh;
+  margin-bottom: 10px;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-around;
+}
+
+.faqQuestionContainer {
+  height: 5vh;
+  width: 50%;
+  background-color: #A5A6F6;
+  border: 2px solid #110944;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+}
+
+.faqAnswerContainer {
+  width: 45%;
+  margin-bottom: 10px;
+}
+
+.faqQuestion{
+  font-family: 'La Belle Aurore';
+  font-size: x-large;
+  font-weight: 400;
+  color: #110944;
+}
+
+.faqAnswer {
+  font-weight: bold;
+  font-family: 'Amaranth';
 }

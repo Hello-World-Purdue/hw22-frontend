@@ -155,13 +155,19 @@
 .sponsorBox {
   height: 60vh;
   width: 30vw;
-  padding: 2px 3px;
+  padding: 3px 3px;
   background-color: #A5A6F6;
   border: 2px solid #333;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.sponsorBlurb {
+  font-family: 'Amaranth';
+  font-weight: 300;
+  font-size: small;
 }
 
 /* HEADER STYLES */
@@ -459,7 +465,7 @@
 
 .labelContainer {
   height: 5vh;
-  width: 5vw;
+  width: 6vw;
   background-color: #A5A6F6;
   border: solid 2px #110944;
   display: flex;

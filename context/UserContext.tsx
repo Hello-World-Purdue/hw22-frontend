@@ -4,12 +4,12 @@ import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
 import { Announcement, Application, User } from "./types";
 
-// axios.defaults.baseURL =
-//   process.env.NODE_ENV === "production"
-//     ? "https://helloworldpurdue-api.herokuapp.com"
-//     : "http://localhost:5000";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "production"
+    ? "https://helloworldpurdue-api.herokuapp.com"
+    : "http://localhost:5000";
 
-axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.baseURL = "http://localhost:5000";
 
 const initialState: {
 	application: Application | null;

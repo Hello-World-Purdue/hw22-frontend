@@ -18,7 +18,7 @@ const sponsors = [
         "width": 180
     },
     {
-        "name": "Delloite",
+        "name": "Deloitte",
         "blurb": "At Deloitte you will work across cutting-edge technologies including various cloud platforms, and front-end and back-end technologies. You will follow your passion to either learn many new technologies, or become an expert in a desired few.  Deloitte will give you the ability to use your skillset across various industries to implement and deliver cutting-edge solutions.",
         "height": 100,
         "width": 150

@@ -144,6 +144,14 @@
   font-weight: 400;
 }
 
+.sponsorNameLanding {
+  font-family: 'Amaranth';
+  font-size: xx-large;
+  color: #110944;
+  text-shadow: 2px 2px #eaeaea;
+  font-weight: 400;
+}
+
 .sponsorLogo {
   display: flex;
   flex-direction: column;
@@ -168,6 +176,13 @@
   font-family: 'Amaranth';
   font-weight: 300;
   font-size: small;
+}
+
+.sponsorArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* HEADER STYLES */
@@ -607,4 +622,25 @@
   font-family: 'La Belle Aurore';
   font-weight: 400;
   font-size: x-large;
+}
+
+.sponsorSection {
+  margin: 0.5rem 1rem;
+}
+
+.sponsorSectionHeading {
+  font-family: 'La Belle Aurore';
+  font-size: 6rem;
+  font-weight: 900;
+}
+
+.sponsorButton {
+  height: 5vh;
+  width: 10vw;
+  background-color: #a5a6f6;
+  border: 2px solid black;
+  font-family: 'La Belle Aurore';
+  font-weight: 400;
+  font-size: x-large;
+  margin-bottom: 1rem;
 }

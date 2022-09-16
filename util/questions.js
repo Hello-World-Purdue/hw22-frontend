@@ -3,7 +3,7 @@ export const questions = [
     q: "What’s the best ways to find teammates?",
     a: [
       "Ask friends",
-      "Team forming events at social (Sept 16) and day-of hackathon",
+      "Team forming events on the day of the hackathon",
     ],
   },
   {

@@ -3,10 +3,17 @@ import React, {useEffect, useState} from "react";
 
 import {User} from "./types";
 
-axios.defaults.baseURL =
-  process.env.NODE_ENV == "production"
-    ? "https://helloworldpurdue-api.herokuapp.com"
-    : "http://localhost:5000";
+// axios.defaults.baseURL =
+//   process.env.NODE_ENV == "production"
+//     ? "https://helloworldpurdue-api.herokuapp.com"
+//     : "http://localhost:5000";
+
+// axios.defaults.baseURL =
+//   process.env.NODE_ENV == "production"
+//     ? "https://helloworld-2022.herokuapp.com/"
+//     : "http://localhost:5000";
+
+axios.defaults.baseURL = "https://helloworld-2022.herokuapp.com/";
 
 const initialState: {
   isAuthenticated: boolean;

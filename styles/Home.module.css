@@ -208,6 +208,18 @@
   margin-bottom: 5vh;
 }
 
+.aboutHeader {
+  width: 100%;
+  height: 35vh;
+  background-image: url('../images/ann_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 5vh;
+}
+
 .scheduleHeader {
   width: 100%;
   height: 35vh;
@@ -253,6 +265,40 @@
   font-weight: 500;
   color: #ef5dab;
   text-shadow: 3px 3px #fcddec;
+  margin-right: 2vw;
+}
+
+.landingHeader {
+  width: 100%;
+  height: 45vh;
+  background-image: url('../images/ann_banner.png');
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.landingTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  margin-top: 1vh;
+  font-weight: 500;
+  color: #fcddec;
+  text-shadow: 3px 3px #ff0083;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutTitle {
+  font-family: 'La Belle Aurore';
+  font-size: 15vh;
+  font-weight: 500;
+  color:#fcddec;
+  text-shadow: 3px 3px #ef5dab;
   margin-right: 2vw;
 }
 
@@ -490,4 +536,75 @@
 .annDate {
   font-family: 'Amaranth';
   font-size: large;
+}
+
+/* ABOUT US PAGE STYLES */
+
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem;
+}
+
+.sectionHeader {
+  font-family: 'La Belle Aurore';
+  font-size: xx-large;
+  font-weight: 500;
+  text-shadow: 1px 1px #7879f1;
+}
+
+.aboutText {
+  font-family: 'Amaranth';
+  font-size: large;
+  color: #110944;
+  margin: 0.8rem 0;
+}
+
+.sectionEnd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LANDING PAGE STYLES */
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem;
+}
+
+.hackTime {
+  font-family: 'Amarante';
+  font-size: 7rem;
+  font-weight: 500;
+}
+
+.meetUsThereSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin: 1rem 0;
+}
+
+.meetUsThere {
+  font-family: 'Amaranth';
+  font-size: 1.5rem;
+  margin: 0.5rem 1rem;
+}
+
+.scheduleButton {
+  height: 5vh;
+  width: 10vw;
+  background-color: #8cd2f9;
+  border: 2px solid black;
+  font-family: 'La Belle Aurore';
+  font-weight: 400;
+  font-size: xx-large;
 }

@@ -88,15 +88,15 @@ export const Navbar = () => {
 				<Link href="/faq">
 					<p className={styles.navLink}>FAQ</p>
 				</Link>
-				<Link href="/">
-					<div className={styles.navbarLogo}><Image src="/hw_logo.png" height={40} width={40} alt="gradient" /></div>
-				</Link>
 				<Link href="/announcements">
 					<p className={styles.navLink}>Announcements</p>
 				</Link>
-				{/* <Link href="/about">
+				<Link href="/">
+					<div className={styles.navbarLogo}><Image src="/hw_logo.png" height={40} width={40} alt="gradient" /></div>
+				</Link>
+				<Link href="/about">
 					<p className={styles.navLink}>About Us</p>
-				</Link> */}
+				</Link>
 				<Link href="/sponsors">
 					<p className={styles.navLink}>Sponsors</p>
 				</Link>
@@ -107,6 +107,7 @@ export const Navbar = () => {
 			<div className={styles.navbarLogin}>
 				{user ? (
 					<button
+						className={styles.loginButton}
 						onClick={() => {
 							logout();
 							push("/login");

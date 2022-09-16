@@ -4,12 +4,18 @@ import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
 import { Announcement, Application, User } from "./types";
 
-axios.defaults.baseURL =
-  process.env.NODE_ENV === "production"
-    ? "https://helloworldpurdue-api.herokuapp.com"
-    : "http://localhost:5000";
+// axios.defaults.baseURL =
+//   process.env.NODE_ENV === "production"
+//     ? "https://helloworldpurdue-api.herokuapp.com"
+//     : "http://localhost:5000";
 
-// axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.baseURL =
+//   process.env.NODE_ENV == "production"
+//     ? "https://helloworld-2022.herokuapp.com/"
+//     : "http://localhost:5000";
+
+axios.defaults.baseURL = "https://helloworld-2022.herokuapp.com/";
+
 
 const initialState: {
 	application: Application | null;

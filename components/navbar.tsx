@@ -23,7 +23,9 @@ export const Navbar = () => {
 					<p className={styles.navLink}>Announcements</p>
 				</Link>
 				<Link href="/">
-					<div className={styles.navbarLogo}><Image src="/hw_logo.png" height={40} width={40} alt="gradient" /></div>
+					<div className={styles.navbarLogo}>
+						<Image src="/hw_logo.png" height={40} width={40} alt="gradient" />
+					</div>
 				</Link>
 				<Link href="/about">
 					<p className={styles.navLink}>About Us</p>
@@ -31,9 +33,9 @@ export const Navbar = () => {
 				<Link href="/sponsors">
 					<p className={styles.navLink}>Sponsors</p>
 				</Link>
-        {/* <Link href="/">
+				<Link href="/https://helloworldhelpq.herokuapp.com/">
 					<p className={styles.navLink}>HelpQ</p>
-				</Link> */}
+				</Link>
 			</div>
 			{/* <div className={styles.navbarLogin}>
 				{user ? (

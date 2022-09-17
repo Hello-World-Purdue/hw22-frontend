@@ -644,3 +644,34 @@
   font-size: x-large;
   margin-bottom: 1rem;
 }
+
+/* ANNOUNCEMENTS FORM STYLES */
+
+.formContainer {
+  padding: 0.5rem 0.5rem;
+  margin: 0.8rem 0.5rem;
+}
+
+.formField {
+  margin: 0.6rem 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Amaranth';
+}
+
+.formFieldLabel {
+  margin-bottom: 0.5rem;
+}
+
+.formFieldInput {
+  border: solid 2px #110944;
+}
+
+.formButton {
+  margin-top: 0.5rem;
+  padding: 0.4rem;
+  background-color: #7879f1;
+  color: #110944;
+  font-family: 'La Belle Aurore';
+  border: solid 2px #110944;
+}

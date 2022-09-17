@@ -41,8 +41,9 @@ const AnnouncementsForm: React.FC<{}> = (props) => {
     <div className={styles.formContainer}> {/* card */}
       <form className={styles.form} onSubmit={submitForm}>
         <div className={styles.formField}>
-          <label>BODY</label>
+          <label className={styles.formFieldLabel}>BODY</label>
           <input
+            className={styles.formFieldInput}
             onChange={bodyHandler}
             type="text"
             name="username"
@@ -51,8 +52,7 @@ const AnnouncementsForm: React.FC<{}> = (props) => {
         </div>
 
         <div className={styles.formField}>
-          <label>LABEL</label>
-          <br></br>
+          <label className={styles.formFieldLabel}>LABEL</label>
           <select
             className="form-control"
             onChange={labelHandler}
@@ -69,45 +69,11 @@ const AnnouncementsForm: React.FC<{}> = (props) => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <button type="submit">Submit</button>
+          <button className={styles.formButton} type="submit">Submit</button>
         </div>
       </form>
     </div>
   );
 };
-
-export const CreateAnnouncementsButton = () => (
-  <>
-    <div className="" style={{ position: "relative" }}>
-      <button
-        type="button"
-        className="create-ancmnt-button"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Create Announcement
-      </button>
-    </div>
-
-    <div className="modal" id="exampleModal">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title"></h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body">
-            <AnnouncementsForm />
-          </div>
-        </div>
-      </div>
-    </div>
-  </>
-);
 
 export default AnnouncementsForm;

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { w3cwebsocket as WebSocket } from "websocket";
 import Image from "next/image";
 
-import { CreateAnnouncementsButton } from "../components/AnnouncementForm";
+import AnnouncementsForm from "../components/AnnouncementForm";
 
 import UserContext from "../context/UserContext";
 import AuthContext from "../context/AuthContext";
@@ -31,8 +31,11 @@ function Announcements() {
 
 	const setupWS = () => {
 		const url =
+			// process.env.NODE_ENV === "production"
+			// 	? "wss://helloworldpurdue-api.herokuapp.com"
+			// 	: "ws://localhost:5000";
 			process.env.NODE_ENV === "production"
-				? "wss://helloworldpurdue-api.herokuapp.com"
+				? "wss://helloworld-2022.herokuapp.com/"
 				: "ws://localhost:5000";
 		const ws = new WebSocket(url, "echo-protocol");
 
@@ -86,9 +89,9 @@ function Announcements() {
 			<div className={styles.annHeader}>
 				<h2 className={styles.annHeaderTitle}>Announcements</h2>
 			</div>
-			{isAuthenticated && (user?.role === "ADMIN" || user?.role === "EXEC") && (
-				<CreateAnnouncementsButton />
-			)}
+			{/* {isAuthenticated && (user?.role === "ADMIN" || user?.role === "EXEC") && (
+				<AnnouncementsForm />
+			)} */}
 
 			{annList && annList.length > 0 ? (
 				<div className="">
@@ -127,9 +130,14 @@ function Announcements() {
 										</div>
 									</div>
 									<div className={styles.annContainer}>
-									<div></div>
-									<Image src="/design_black.png" height={50} width={180} alt="gradient" />
-									<div></div>
+										<div></div>
+										<Image
+											src="/design_black.png"
+											height={50}
+											width={180}
+											alt="gradient"
+										/>
+										<div></div>
 									</div>
 								</div>
 							);

@@ -168,4 +168,4 @@ export const data: EventsData[] = [
 		details: "",
 		happened: Date.now() > Date.parse("2022-09-13, 19:30:00") ? true : false,
 	}
-];
+].reverse();

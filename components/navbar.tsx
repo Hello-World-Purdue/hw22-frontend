@@ -33,9 +33,9 @@ export const Navbar = () => {
 				<Link href="/sponsors">
 					<p className={styles.navLink}>Sponsors</p>
 				</Link>
-				<Link href="/https://helloworldhelpq.herokuapp.com/">
+				<a href="https://helloworldhelpq.herokuapp.com/">
 					<p className={styles.navLink}>HelpQ</p>
-				</Link>
+				</a>
 			</div>
 			{/* <div className={styles.navbarLogin}>
 				{user ? (
